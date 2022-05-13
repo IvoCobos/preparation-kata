@@ -1,16 +1,14 @@
 import 'dotenv/config.js';
-import express  from 'express';
+const {express} = require ('express');
 import axios from 'axios';
-import parser from 'body-parser'
+const {parser} = require ('body-parser');
+const { users } = require ('./endpoints');
 
 const app = express ( );
 
 app.use(parser.urlencoded({extend: false}))
 app.use(parser.json())
-app.get('/', async (req, res)=> {
-    const {data} = await axios.get('https://dog.ceo/api/breeds/image/random');
-    res.status(200).send(data);
-});
+app.get('/', users.get );
 
 app.post('/', async (req, res) =>{
     const { body } = req
