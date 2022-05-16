@@ -1,12 +1,12 @@
 import 'dotenv/config.js';
-const {express} = require ('express');
+import express from 'express';
 import axios from 'axios';
-const {parser} = require ('body-parser');
-const { users } = require ('./endpoints');
+import parser from'body-parser';
+import {users} from './endpoints/index.js';
 
 const app = express ( );
 
-app.use(parser.urlencoded({extend: false}))
+app.use(parser.urlencoded({extended: true}))
 app.use(parser.json())
 app.get('/', users.get );
 

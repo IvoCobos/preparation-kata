@@ -4,7 +4,7 @@
   "description": "Express backend",
   "author": "",
   "license": "ISC",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "nodemon app.js",

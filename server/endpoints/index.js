@@ -1,5 +1,5 @@
-const users = require('./users');
+import users from './users/index.js';
 
-module.exports = {
+export {
     users,
 }
