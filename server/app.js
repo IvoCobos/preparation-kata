@@ -3,6 +3,8 @@ import express from 'express';
 import axios from 'axios';
 import parser from'body-parser';
 import {users} from './endpoints/index.js';
+import mongoose from 'mongoose';
+
 
 const app = express ( );
 
@@ -33,7 +35,14 @@ app.delete('/', async (req,res) => {
     res.sendStatus(204);
 });
 
-
-app.listen(3000,( ()=> {
-    console.log("Server ok!")
+const port = 3000;
+app.listen(port,( ()=> {
+    console.log("Server ok!", port );
 }));
+
+
+// DB connection 
+mongoose
+.connect(process.env.MONGODB_URI)
+.then(()=> console.log("Conectado a MongoBD"))
+.catch((error) => console.log(error));
