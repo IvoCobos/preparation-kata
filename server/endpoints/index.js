@@ -1,5 +1,5 @@
-import users from './users/index.js';
+import pets from './pet/index.js';
 
 export {
-    users,
+    pets,
 }
